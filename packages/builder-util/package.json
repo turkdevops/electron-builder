@@ -11,7 +11,7 @@
     "out"
   ],
   "dependencies": {
-    "7zip-bin": "~5.0.3",
+    "7zip-bin": "~5.1.0",
     "@types/debug": "^4.1.5",
     "@types/fs-extra": "^9.0.7",
     "app-builder-bin": "3.5.12",
