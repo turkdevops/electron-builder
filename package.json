@@ -41,12 +41,12 @@
     "dmg-license": "1.0.9"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "7.15.0",
+    "@babel/plugin-transform-modules-commonjs": "7.15.4",
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.16.0",
     "@types/node": "16.7.10",
-    "@typescript-eslint/eslint-plugin": "4.30.0",
-    "@typescript-eslint/parser": "4.30.0",
+    "@typescript-eslint/eslint-plugin": "4.31.2",
+    "@typescript-eslint/parser": "4.31.2",
     "catharsis": "0.9.0",
     "conventional-changelog-cli": "2.1.1",
     "dmd": "6.0.0",
@@ -66,7 +66,7 @@
     "source-map-support": "0.5.19",
     "ts-jsdoc": "3.2.2",
     "typescript": "4.3.5",
-    "typescript-json-schema": "0.50.1",
+    "typescript-json-schema": "0.51.0",
     "v8-compile-cache": "2.3.0"
   },
   "engines": {
