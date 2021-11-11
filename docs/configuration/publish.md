@@ -181,7 +181,7 @@ Define <code>GH_TOKEN</code> environment variable.</p>
 <p><a href="https://snapcraft.io/">Snap Store</a> options.</p>
 <ul>
 <li><strong><code id="SnapStoreOptions-provider">provider</code></strong> “snapStore” - The provider. Must be <code>snapStore</code>.</li>
-<li><strong><code id="SnapStoreOptions-repo">repo</code></strong> String - snapcraft repo name</li>
+<li><code id="SnapStoreOptions-repo">repo</code> String - snapcraft repo name</li>
 <li><code id="SnapStoreOptions-channels">channels</code> = <code>[&quot;edge&quot;]</code> String | Array&lt;String&gt; | “undefined” - The list of channels the snap would be released.</li>
 </ul>
 <p>Inherited from <code>PublishConfiguration</code>:</p>
@@ -239,6 +239,8 @@ Define <code>BITBUCKET_TOKEN</code> environment variable.</p>
 <ul>
 <li><strong><code id="BitbucketOptions-provider">provider</code></strong> “bitbucket” - The provider. Must be <code>bitbucket</code>.</li>
 <li><strong><code id="BitbucketOptions-owner">owner</code></strong> String - Repository owner</li>
+<li><code id="BitbucketOptions-token">token</code> String | “undefined” - The access token to support auto-update from private bitbucket repositories.</li>
+<li><code id="BitbucketOptions-username">username</code> String | “undefined” - The user name to support auto-update from private bitbucket repositories.</li>
 <li><strong><code id="BitbucketOptions-slug">slug</code></strong> String - Repository slug/name</li>
 <li><code id="BitbucketOptions-channel">channel</code> = <code>latest</code> String | “undefined” - The channel.</li>
 </ul>

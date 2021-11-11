@@ -1,5 +1,28 @@
 # electron-publish
 
+## 22.14.7
+
+### Patch Changes
+
+- Updated dependencies [[`04a84352`](https://github.com/electron-userland/electron-builder/commit/04a84352b2b3fbb3c54533a8428bfd103df0af21)]:
+  - builder-util@22.14.7
+
+## 22.14.6
+
+### Patch Changes
+
+- Updated dependencies [[`66ca625f`](https://github.com/electron-userland/electron-builder/commit/66ca625f892329fd7bedf52fddc6659ec83b7cd3)]:
+  - builder-util-runtime@8.9.2
+  - builder-util@22.14.6
+
+## 22.14.5
+
+### Patch Changes
+
+- Updated dependencies [[`54ee4e72`](https://github.com/electron-userland/electron-builder/commit/54ee4e72c5db859b9a00104179786567a0e977ff)]:
+  - builder-util-runtime@8.9.1
+  - builder-util@22.14.5
+
 ## 22.14.0
 
 ### Minor Changes

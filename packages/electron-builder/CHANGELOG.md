@@ -1,5 +1,42 @@
 # electron-builder
 
+## 22.14.7
+
+### Patch Changes
+
+- Updated dependencies [[`04a84352`](https://github.com/electron-userland/electron-builder/commit/04a84352b2b3fbb3c54533a8428bfd103df0af21)]:
+  - builder-util@22.14.7
+  - app-builder-lib@22.14.7
+  - dmg-builder@22.14.7
+
+## 22.14.6
+
+### Patch Changes
+
+- Updated dependencies [[`5468c188`](https://github.com/electron-userland/electron-builder/commit/5468c188f30f65352ca651e1f5fa9f8915c48c6b), [`f41d5f39`](https://github.com/electron-userland/electron-builder/commit/f41d5f397ade8f6199d56bb4275b05a0a0e65bca), [`66ca625f`](https://github.com/electron-userland/electron-builder/commit/66ca625f892329fd7bedf52fddc6659ec83b7cd3)]:
+  - app-builder-lib@22.14.6
+  - builder-util-runtime@8.9.2
+  - builder-util@22.14.6
+  - dmg-builder@22.14.6
+
+## 22.14.5
+
+### Patch Changes
+
+- Updated dependencies [[`54ee4e72`](https://github.com/electron-userland/electron-builder/commit/54ee4e72c5db859b9a00104179786567a0e977ff)]:
+  - app-builder-lib@22.14.5
+  - builder-util-runtime@8.9.1
+  - builder-util@22.14.5
+  - dmg-builder@22.14.5
+
+## 22.14.4
+
+### Patch Changes
+
+- Updated dependencies [[`fce1a1fa`](https://github.com/electron-userland/electron-builder/commit/fce1a1fab66e3f5cd741a4cecc4af8377aea9dd8), [`10b47273`](https://github.com/electron-userland/electron-builder/commit/10b47273c32c32df17dfb910feb4a7704c83da91), [`b7e4c382`](https://github.com/electron-userland/electron-builder/commit/b7e4c382984bac874f63b83e0db91d875566a550), [`e29a6b8b`](https://github.com/electron-userland/electron-builder/commit/e29a6b8b36695a2ed9d2f9a57e4c1c74587d1b16), [`8ebfc962`](https://github.com/electron-userland/electron-builder/commit/8ebfc96276bffe0bc1ad394c5ae6843976e01709)]:
+  - app-builder-lib@22.14.4
+  - dmg-builder@22.14.4
+
 ## 22.14.3
 
 ### Patch Changes
