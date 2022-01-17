@@ -1,5 +1,48 @@
 # dmg-builder
 
+## 22.14.13
+
+### Patch Changes
+
+- Updated dependencies [[`f7b38698`](https://github.com/electron-userland/electron-builder/commit/f7b386986ec30f7e4cd3e3f68e078a773940a51c)]:
+  - builder-util@22.14.13
+  - app-builder-lib@22.14.13
+
+## 22.14.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - app-builder-lib@22.14.12
+
+## 22.14.11
+
+### Patch Changes
+
+- Updated dependencies [[`e3d06afa`](https://github.com/electron-userland/electron-builder/commit/e3d06afae1236d44e4b6e670b453b260b1f74d84)]:
+  - app-builder-lib@22.14.11
+
+## 22.14.10
+
+### Patch Changes
+
+- Updated dependencies [[`df7a4255`](https://github.com/electron-userland/electron-builder/commit/df7a4255d219aea7a1236fd5693f7c13460099ad)]:
+  - app-builder-lib@22.14.10
+
+## 22.14.9
+
+### Patch Changes
+
+- Updated dependencies [[`661a6522`](https://github.com/electron-userland/electron-builder/commit/661a6522520e9ea59549cb7e18986fcfb58e873a)]:
+  - app-builder-lib@22.14.9
+
+## 22.14.8
+
+### Patch Changes
+
+- Updated dependencies [[`d20bcf0c`](https://github.com/electron-userland/electron-builder/commit/d20bcf0cea4e4cb49aab08f820131a2d6b083a2c)]:
+  - app-builder-lib@22.14.8
+
 ## 22.14.7
 
 ### Patch Changes

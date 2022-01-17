@@ -1,6 +1,6 @@
 import { OutgoingHttpHeaders } from "http"
 
-export type PublishProvider = "github" | "bintray" | "s3" | "spaces" | "generic" | "custom" | "snapStore" | "keygen" | "bitbucket"
+export type PublishProvider = "github" | "s3" | "spaces" | "generic" | "custom" | "snapStore" | "keygen" | "bitbucket"
 
 // typescript-json-schema generates only PublishConfiguration if it is specified in the list, so, it is not added here
 export type AllPublishOptions =
@@ -9,7 +9,6 @@ export type AllPublishOptions =
   | S3Options
   | SpacesOptions
   | GenericServerOptions
-  | BintrayOptions
   | CustomPublishOptions
   | KeygenOptions
   | SnapStoreOptions
@@ -114,6 +113,12 @@ export interface GithubOptions extends PublishConfiguration {
    * Whether to use private github auto-update provider if `GH_TOKEN` environment variable is defined. See [Private GitHub Update Repo](/auto-update#private-github-update-repo).
    */
   readonly private?: boolean | null
+
+  /**
+   * The channel.
+   * @default latest
+   */
+  readonly channel?: string | null
 
   /**
    * The type of release. By default `draft` release will be created.
@@ -412,49 +417,4 @@ function spacesUrl(options: SpacesOptions) {
     throw new Error(`region is missing`)
   }
   return appendPath(`https://${options.name}.${options.region}.digitaloceanspaces.com`, options.path)
-}
-
-/**
- * [Bintray](https://bintray.com/) options. Requires an API key. An API key can be obtained from the user [profile](https://bintray.com/profile/edit) page ("Edit Your Profile" -> API Key).
- * Define `BT_TOKEN` environment variable.
- */
-export interface BintrayOptions extends PublishConfiguration {
-  /**
-   * The provider. Must be `bintray`.
-   */
-  readonly provider: "bintray"
-
-  /**
-   * The Bintray package name.
-   */
-  readonly package?: string | null
-
-  /**
-   * The Bintray repository name.
-   * @default generic
-   */
-  readonly repo?: string | null
-
-  /**
-   * The owner.
-   */
-  readonly owner?: string | null
-
-  /**
-   * The Bintray component (Debian only).
-   */
-  readonly component?: string | null
-
-  /**
-   * The Bintray distribution (Debian only).
-   * @default stable
-   */
-  readonly distribution?: string | null
-
-  /**
-   * The Bintray user account. Used in cases where the owner is an organization.
-   */
-  readonly user?: string | null
-
-  readonly token?: string | null
 }

@@ -31,7 +31,7 @@ export class GitHubPublisher extends HttpPublisher {
 
   private readonly token: string
 
-  readonly providerName = "GitHub"
+  readonly providerName = "github"
 
   private readonly releaseType: "draft" | "prerelease" | "release"
 
@@ -182,6 +182,7 @@ export class GitHubPublisher extends HttpPublisher {
       .doApiRequest(
         configureRequestOptions(
           {
+            protocol: parsedUrl.protocol,
             hostname: parsedUrl.hostname,
             path: parsedUrl.path,
             method: "POST",
@@ -217,7 +218,6 @@ export class GitHubPublisher extends HttpPublisher {
   private createRelease() {
     return this.githubRequest<Release>(`/repos/${this.info.owner}/${this.info.repo}/releases`, this.token, {
       tag_name: this.tag,
-      name: this.version,
       draft: this.releaseType === "draft",
       prerelease: this.releaseType === "prerelease",
     })
@@ -263,6 +263,7 @@ export class GitHubPublisher extends HttpPublisher {
       httpExecutor.request(
         configureRequestOptions(
           {
+            protocol: baseUrl.protocol,
             hostname: baseUrl.hostname,
             port: baseUrl.port as any,
             path: this.info.host != null && this.info.host !== "github.com" ? `/api/v3${path.startsWith("/") ? path : `/${path}`}` : path,
