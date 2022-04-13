@@ -419,6 +419,13 @@
             "string"
           ]
         },
+        "debugLogging": {
+          "description": "Whether or not to enable NSIS logging for debugging.\nNote: Requires a debug-enabled NSIS build.\nelectron-builder's included `makensis` does not natively support debug-enabled NSIS installers currently, you must supply your own via `customNsisBinary?: CustomNsisBinary`\nIn your custom nsis scripts, you can leverage this functionality via `LogSet` and `LogText`",
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
         "url": {
           "default": "https://github.com/electron-userland/electron-builder-binaries/releases/download",
           "type": [
@@ -2578,6 +2585,11 @@
             "string"
           ]
         },
+        "mergeASARs": {
+          "default": true,
+          "description": "Whether to merge ASAR files for different architectures or not.\n\nThis option has no effect unless building for \"universal\" arch.",
+          "type": "boolean"
+        },
         "minimumSystemVersion": {
           "description": "The minimum version of macOS required for the app to run. Corresponds to `LSMinimumSystemVersion`.",
           "type": [
@@ -2701,6 +2713,10 @@
             }
           ],
           "description": "Regex or an array of regex's that signal skipping signing a file."
+        },
+        "singleArchFiles": {
+          "description": "Minimatch pattern of paths that are allowed to be present in one of the\nASAR files, but not in the other.\n\nThis option has no effect unless building for \"universal\" arch and applies\nonly if `mergeASARs` is `true`.",
+          "type": "string"
         },
         "strictVerify": {
           "anyOf": [
@@ -3183,6 +3199,11 @@
             "string"
           ]
         },
+        "mergeASARs": {
+          "default": true,
+          "description": "Whether to merge ASAR files for different architectures or not.\n\nThis option has no effect unless building for \"universal\" arch.",
+          "type": "boolean"
+        },
         "minimumSystemVersion": {
           "description": "The minimum version of macOS required for the app to run. Corresponds to `LSMinimumSystemVersion`.",
           "type": [
@@ -3306,6 +3327,10 @@
             }
           ],
           "description": "Regex or an array of regex's that signal skipping signing a file."
+        },
+        "singleArchFiles": {
+          "description": "Minimatch pattern of paths that are allowed to be present in one of the\nASAR files, but not in the other.\n\nThis option has no effect unless building for \"universal\" arch and applies\nonly if `mergeASARs` is `true`.",
+          "type": "string"
         },
         "strictVerify": {
           "anyOf": [
@@ -3628,14 +3653,8 @@
             {
               "type": "null"
             }
-          ]
-        },
-        "debugLogging": {
-          "description": "Whether or not to enable NSIS logging for debugging.\nNote: Requires a debug-enabled NSIS build.\nelectron-builder's included `makensis` only supports building debug-enabled NSIS installers on Windows currently\nhttps://github.com/electron-userland/electron-builder/issues/5119#issuecomment-811353612",
-          "type": [
-            "null",
-            "boolean"
-          ]
+          ],
+          "description": "Allows you to provide your own `makensis`, such as one with support for debug logging via LogSet and LogText. (Logging also requires option `debugLogging = true`)"
         },
         "deleteAppDataOnUninstall": {
           "default": false,
@@ -3952,14 +3971,8 @@
             {
               "type": "null"
             }
-          ]
-        },
-        "debugLogging": {
-          "description": "Whether or not to enable NSIS logging for debugging.\nNote: Requires a debug-enabled NSIS build.\nelectron-builder's included `makensis` only supports building debug-enabled NSIS installers on Windows currently\nhttps://github.com/electron-userland/electron-builder/issues/5119#issuecomment-811353612",
-          "type": [
-            "null",
-            "boolean"
-          ]
+          ],
+          "description": "Allows you to provide your own `makensis`, such as one with support for debug logging via LogSet and LogText. (Logging also requires option `debugLogging = true`)"
         },
         "deleteAppDataOnUninstall": {
           "default": false,
@@ -4227,7 +4240,22 @@
       "type": "object"
     },
     "OutgoingHttpHeaders": {
-      "additionalProperties": false,
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          {
+            "type": [
+              "string",
+              "number"
+            ]
+          }
+        ]
+      },
       "type": "object"
     },
     "PkgBackgroundOptions": {
@@ -4392,7 +4420,7 @@
               "type": "null"
             }
           ],
-          "description": "Identifies applications that must be closed before the package is installed.\\n\\nCorresponds to [must-close](https://developer.apple.com/library/archive/documentation/DeveloperTools/Reference/DistributionDefinitionRef/Chapters/Distribution_XML_Ref.html#//apple_ref/doc/uid/TP40005370-CH100-SW77)"
+          "description": "Identifies applications that must be closed before the package is installed.\n\nCorresponds to [must-close](https://developer.apple.com/library/archive/documentation/DeveloperTools/Reference/DistributionDefinitionRef/Chapters/Distribution_XML_Ref.html#//apple_ref/doc/uid/TP40005370-CH100-SW77)."
         },
         "overwriteAction": {
           "anyOf": [
@@ -4542,14 +4570,8 @@
             {
               "type": "null"
             }
-          ]
-        },
-        "debugLogging": {
-          "description": "Whether or not to enable NSIS logging for debugging.\nNote: Requires a debug-enabled NSIS build.\nelectron-builder's included `makensis` only supports building debug-enabled NSIS installers on Windows currently\nhttps://github.com/electron-userland/electron-builder/issues/5119#issuecomment-811353612",
-          "type": [
-            "null",
-            "boolean"
-          ]
+          ],
+          "description": "Allows you to provide your own `makensis`, such as one with support for debug logging via LogSet and LogText. (Logging also requires option `debugLogging = true`)"
         },
         "guid": {
           "description": "See [GUID vs Application Name](../configuration/nsis#guid-vs-application-name).",
@@ -4966,8 +4988,7 @@
               "type": "null"
             }
           ],
-          "default": "lzo",
-          "description": "Sets the compression type for the snap. Can be xz or lzo. Defaults to lzo when not specified."
+          "description": "Sets the compression type for the snap. Can be xz, lzo, or null."
         },
         "confinement": {
           "anyOf": [
@@ -5629,7 +5650,7 @@
           ]
         },
         "certificateSubjectName": {
-          "description": "The name of the subject of the signing certificate. Required only for EV Code Signing and works only on Windows (or on macOS if [Parallels Desktop](https://www.parallels.com/products/desktop/) Windows 10 virtual machines exits).",
+          "description": "The name of the subject of the signing certificate, which is often labeled with the field name `issued to`. Required only for EV Code Signing and works only on Windows (or on macOS if [Parallels Desktop](https://www.parallels.com/products/desktop/) Windows 10 virtual machines exits).",
           "type": [
             "null",
             "string"
@@ -6695,7 +6716,7 @@
       ]
     },
     "productName": {
-      "description": "As [name](#Metadata-name), but allows you to specify a product name for your executable which contains spaces and other special characters not allowed in the [name property](https://docs.npmjs.com/files/package.json#name).",
+      "description": "As [name](#Metadata-name), but allows you to specify a product name for your executable which contains spaces and other special characters not allowed in the [name property](https://docs.npmjs.com/files/package.json#name).\nIf not specified inside of the `build` configuration, `productName` property defined at the top level of `package.json` is used. If not specified at the top level of `package.json`, [name property](https://docs.npmjs.com/files/package.json#name) is used.",
       "type": [
         "null",
         "string"

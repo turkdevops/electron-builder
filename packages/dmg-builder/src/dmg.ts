@@ -297,11 +297,21 @@ async function customizeDmg(volumePath: string, specification: DmgOptions, packa
   const asyncTaskManager = new AsyncTaskManager(packager.info.cancellationToken)
   env.iconLocations = await computeDmgEntries(specification, volumePath, packager, asyncTaskManager)
   await asyncTaskManager.awaitTasks()
-
-  await exec(process.env.PYTHON_PATH || "/usr/bin/python", [path.join(getDmgVendorPath(), "dmgbuild/core.py")], {
-    cwd: getDmgVendorPath(),
-    env,
-  })
+  const executePython = async (execName: string) => {
+    let pythonPath = process.env.PYTHON_PATH
+    if (!pythonPath) {
+      pythonPath = (await exec("which", [execName])).trim()
+    }
+    await exec(pythonPath, [path.join(getDmgVendorPath(), "dmgbuild/core.py")], {
+      cwd: getDmgVendorPath(),
+      env,
+    })
+  }
+  try {
+    await executePython("python3")
+  } catch (error) {
+    await executePython("python")
+  }
   return packager.packagerOptions.effectiveOptionComputed == null || !(await packager.packagerOptions.effectiveOptionComputed({ volumePath, specification, packager }))
 }
 

@@ -1420,7 +1420,7 @@ return path.join(target.outDir, <code>__${target.name}-${getArtifactArchName(arc
 <li><a href="#AppUpdater">.AppUpdater</a> ⇐ <code>module:events.EventEmitter</code>
 <ul>
 <li><a href="#module_electron-updater.AppUpdater+addAuthHeader"><code>.addAuthHeader(token)</code></a></li>
-<li><a href="#module_electron-updater.AppUpdater+checkForUpdates"><code>.checkForUpdates()</code></a> ⇒ <code>Promise&lt;<a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
+<li><a href="#module_electron-updater.AppUpdater+checkForUpdates"><code>.checkForUpdates()</code></a> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+checkForUpdatesAndNotify"><code>.checkForUpdatesAndNotify(downloadNotification)</code></a> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+downloadUpdate"><code>.downloadUpdate(cancellationToken)</code></a> ⇒ <code>Promise&lt;any&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+getFeedURL"><code>.getFeedURL()</code></a> ⇒ <code>undefined</code> | <code>null</code> | <code>String</code></li>
@@ -1433,7 +1433,7 @@ return path.join(target.outDir, <code>__${target.name}-${getArtifactArchName(arc
 <ul>
 <li><a href="#module_electron-updater.MacUpdater+quitAndInstall"><code>.quitAndInstall()</code></a></li>
 <li><a href="#module_electron-updater.AppUpdater+addAuthHeader"><code>.addAuthHeader(token)</code></a></li>
-<li><a href="#module_electron-updater.AppUpdater+checkForUpdates"><code>.checkForUpdates()</code></a> ⇒ <code>Promise&lt;<a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
+<li><a href="#module_electron-updater.AppUpdater+checkForUpdates"><code>.checkForUpdates()</code></a> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+checkForUpdatesAndNotify"><code>.checkForUpdatesAndNotify(downloadNotification)</code></a> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+downloadUpdate"><code>.downloadUpdate(cancellationToken)</code></a> ⇒ <code>Promise&lt;any&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+getFeedURL"><code>.getFeedURL()</code></a> ⇒ <code>undefined</code> | <code>null</code> | <code>String</code></li>
@@ -1597,6 +1597,10 @@ return path.join(target.outDir, <code>__${target.name}-${getArtifactArchName(arc
 <p>Taken in account only if channel differs (pre-release version component in terms of semantic versioning).</p>
 </li>
 <li>
+<p><code id="AppUpdater-disableWebInstaller">disableWebInstaller</code> = <code>false</code> Boolean - Web installer files might not have signature verification, this switch prevents to load them unless it is needed.</p>
+<p>Currently false to prevent breaking the current API, but it should be changed to default true at some point that breaking changes are allowed.</p>
+</li>
+<li>
 <p><code id="AppUpdater-currentVersion">currentVersion</code> SemVer - The current application version.</p>
 </li>
 <li>
@@ -1629,7 +1633,7 @@ return path.join(target.outDir, <code>__${target.name}-${getArtifactArchName(arc
 <li><a href="#AppUpdater">.AppUpdater</a> ⇐ <code>module:events.EventEmitter</code>
 <ul>
 <li><a href="#module_electron-updater.AppUpdater+addAuthHeader"><code>.addAuthHeader(token)</code></a></li>
-<li><a href="#module_electron-updater.AppUpdater+checkForUpdates"><code>.checkForUpdates()</code></a> ⇒ <code>Promise&lt;<a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
+<li><a href="#module_electron-updater.AppUpdater+checkForUpdates"><code>.checkForUpdates()</code></a> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+checkForUpdatesAndNotify"><code>.checkForUpdatesAndNotify(downloadNotification)</code></a> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+downloadUpdate"><code>.downloadUpdate(cancellationToken)</code></a> ⇒ <code>Promise&lt;any&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+getFeedURL"><code>.getFeedURL()</code></a> ⇒ <code>undefined</code> | <code>null</code> | <code>String</code></li>
@@ -1657,7 +1661,7 @@ return path.join(target.outDir, <code>__${target.name}-${getArtifactArchName(arc
 </tbody>
 </table>
 <p><a name="module_electron-updater.AppUpdater+checkForUpdates"></a></p>
-<h3 id="appupdater.checkforupdates()-%E2%87%92-promise%3Cupdatecheckresult%3E"><code>appUpdater.checkForUpdates()</code> ⇒ <code>Promise&lt;<a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></h3>
+<h3 id="appupdater.checkforupdates()-%E2%87%92-promise%3C-%7C-updatecheckresult%3E"><code>appUpdater.checkForUpdates()</code> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></h3>
 <p>Asks the server whether there is an update.</p>
 <p><a name="module_electron-updater.AppUpdater+checkForUpdatesAndNotify"></a></p>
 <h3 id="appupdater.checkforupdatesandnotify(downloadnotification)-%E2%87%92-promise%3C-%7C-updatecheckresult%3E"><code>appUpdater.checkForUpdatesAndNotify(downloadNotification)</code> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></h3>
@@ -1752,7 +1756,7 @@ This is different from the normal quit event sequence.</p>
 <ul>
 <li><a href="#module_electron-updater.MacUpdater+quitAndInstall"><code>.quitAndInstall()</code></a></li>
 <li><a href="#module_electron-updater.AppUpdater+addAuthHeader"><code>.addAuthHeader(token)</code></a></li>
-<li><a href="#module_electron-updater.AppUpdater+checkForUpdates"><code>.checkForUpdates()</code></a> ⇒ <code>Promise&lt;<a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
+<li><a href="#module_electron-updater.AppUpdater+checkForUpdates"><code>.checkForUpdates()</code></a> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+checkForUpdatesAndNotify"><code>.checkForUpdatesAndNotify(downloadNotification)</code></a> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+downloadUpdate"><code>.downloadUpdate(cancellationToken)</code></a> ⇒ <code>Promise&lt;any&gt;</code></li>
 <li><a href="#module_electron-updater.AppUpdater+getFeedURL"><code>.getFeedURL()</code></a> ⇒ <code>undefined</code> | <code>null</code> | <code>String</code></li>
@@ -1782,7 +1786,7 @@ This is different from the normal quit event sequence.</p>
 </tbody>
 </table>
 <p><a name="module_electron-updater.AppUpdater+checkForUpdates"></a></p>
-<h3 id="macupdater.checkforupdates()-%E2%87%92-promise%3Cupdatecheckresult%3E"><code>macUpdater.checkForUpdates()</code> ⇒ <code>Promise&lt;<a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></h3>
+<h3 id="macupdater.checkforupdates()-%E2%87%92-promise%3C-%7C-updatecheckresult%3E"><code>macUpdater.checkForUpdates()</code> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></h3>
 <p>Asks the server whether there is an update.</p>
 <p><a name="module_electron-updater.AppUpdater+checkForUpdatesAndNotify"></a></p>
 <h3 id="macupdater.checkforupdatesandnotify(downloadnotification)-%E2%87%92-promise%3C-%7C-updatecheckresult%3E"><code>macUpdater.checkForUpdatesAndNotify(downloadNotification)</code> ⇒ <code>Promise&lt; | <a href="#UpdateCheckResult">UpdateCheckResult</a>&gt;</code></h3>

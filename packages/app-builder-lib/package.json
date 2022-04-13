@@ -1,7 +1,7 @@
 {
   "name": "app-builder-lib",
   "description": "electron-builder lib",
-  "version": "22.14.13",
+  "version": "23.0.5",
   "main": "out/index.js",
   "files": [
     "out",
@@ -49,7 +49,7 @@
   "dependencies": {
     "7zip-bin": "~5.1.1",
     "@develar/schema-utils": "~2.6.5",
-    "@electron/universal": "1.0.5",
+    "@electron/universal": "1.2.1",
     "@malept/flatpak-bundler": "^0.4.0",
     "async-exit-hook": "^2.0.1",
     "bluebird-lst": "^1.0.9",
@@ -58,7 +58,7 @@
     "chromium-pickle-js": "^0.2.0",
     "debug": "^4.3.2",
     "ejs": "^3.1.6",
-    "electron-osx-sign": "^0.5.0",
+    "electron-osx-sign": "^0.6.0",
     "electron-publish": "workspace:*",
     "form-data": "^4.0.0",
     "fs-extra": "^10.0.0",

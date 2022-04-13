@@ -2,6 +2,8 @@ name: Test
 
 on:
   push:
+    branches:
+      master
   pull_request:
 
   # Allows you to run this workflow manually from the Actions tab
@@ -22,7 +24,7 @@ jobs:
           - snapTest,debTest,fpmTest,protonTest
     steps:
       - name: Checkout code repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -37,7 +39,7 @@ jobs:
 
       - name: Determine if Dockerfiles changed
         id: changed-files
-        uses: tj-actions/changed-files@v13
+        uses: tj-actions/changed-files@v17
 
       - name: Dockerfile has changed, rebuild for tests
         if: ${{ github.event.inputs.build-docker-locally == 'true' }} || contains(steps.changed-files.outputs.all_changed_files, 'Dockerfile') || contains(steps.changed-files.outputs.all_changed_files, 'docker')
@@ -53,7 +55,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout code repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Tests
         uses: ./.github/actions/pretest
@@ -72,7 +74,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout code repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Tests
         uses: ./.github/actions/pretest
@@ -85,7 +87,7 @@ jobs:
         env:
           TEST_FILES: nsisUpdaterTest
           KEYGEN_TOKEN: ${{ secrets.KEYGEN_TOKEN }}
-          # BITBUCKET_TOKEN: ${{ secrets.BITBUCKET_TOKEN }}
+          BITBUCKET_TOKEN: ${{ secrets.BITBUCKET_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           FORCE_COLOR: 1
 
@@ -98,7 +100,7 @@ jobs:
           - oneClickInstallerTest,winCodeSignTest,winPackagerTest,webInstallerTest
     steps:
       - name: Checkout code repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Tests
         uses: ./.github/actions/pretest

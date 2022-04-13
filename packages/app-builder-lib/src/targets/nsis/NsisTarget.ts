@@ -18,7 +18,7 @@ import { execWine } from "../../wine"
 import { WinPackager } from "../../winPackager"
 import { archive, ArchiveOptions } from "../archive"
 import { appendBlockmap, configureDifferentialAwareArchiveOptions, createBlockmap, createNsisWebDifferentialUpdateInfo } from "../differentialUpdateInfoBuilder"
-import { getWindowsInstallationDirName } from "../targetUtil"
+import { getWindowsInstallationAppPackageName, getWindowsInstallationDirName } from "../targetUtil"
 import { addCustomMessageFileInclude, createAddLangsMacro, LangConfigurator } from "./nsisLang"
 import { computeLicensePage } from "./nsisLicense"
 import { NsisOptions, PortableOptions } from "./nsisOptions"
@@ -189,10 +189,10 @@ export class NsisTarget extends Target {
       PROJECT_DIR: packager.projectDir,
       BUILD_RESOURCES_DIR: packager.info.buildResourcesDir,
 
-      APP_PACKAGE_NAME: appInfo.name,
+      APP_PACKAGE_NAME: getWindowsInstallationAppPackageName(appInfo.name),
     }
-    if (options.debugLogging) {
-      defines.ENABLE_LOGGING = null
+    if (options.customNsisBinary?.debugLogging) {
+      defines.ENABLE_LOGGING_ELECTRON_BUILDER = null
     }
     if (uninstallAppKey !== guid) {
       defines.UNINSTALL_REGISTRY_KEY_2 = `Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\${guid}`
@@ -370,7 +370,7 @@ export class NsisTarget extends Target {
     if (isMacOsCatalina()) {
       try {
         await UninstallerReader.exec(installerPath, uninstallerPath)
-      } catch (error) {
+      } catch (error: any) {
         log.warn(`packager.vm is used: ${error.message}`)
 
         const vm = await packager.vm.value

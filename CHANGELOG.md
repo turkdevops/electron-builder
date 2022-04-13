@@ -1,3 +1,295 @@
+# [](https://github.com/electron-userland/electron-builder/compare/v23.0.4...v) (2022-04-11)
+
+
+### Bug Fixes
+
+* **app-builder-lib:** Overriding OutgoingHttpHeaders schema props ([#6775](https://github.com/electron-userland/electron-builder/issues/6775)) ([e9a87a7](https://github.com/electron-userland/electron-builder/commit/e9a87a738ceb2b9e14cbc85b4c62e11edab3d0cf)), closes [#6635](https://github.com/electron-userland/electron-builder/issues/6635)
+* **nsis:** Update zh-tw translation ([#6773](https://github.com/electron-userland/electron-builder/issues/6773)) ([5a0bab1](https://github.com/electron-userland/electron-builder/commit/5a0bab115f4ede3f21e23e847c0d2dd7ecc99b16))
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v23.0.3...v) (2022-04-08)
+
+
+### Bug Fixes
+
+* **app-builder-lib:** bump @electron/universal to 1.2.1 ([#6750](https://github.com/electron-userland/electron-builder/issues/6750)) ([370f84b](https://github.com/electron-userland/electron-builder/commit/370f84bb2f32f28c374b63e1c795e4850f971274))
+* **app-builder-lib:** change slash to backslash in NSIS's APP_PACKAGE_NAME ([#6772](https://github.com/electron-userland/electron-builder/issues/6772)) ([e861352](https://github.com/electron-userland/electron-builder/commit/e86135236908961b1269708ca645a66c7ff19287))
+* **nsis:** specify full path to system's find ([#6771](https://github.com/electron-userland/electron-builder/issues/6771)) ([e6c2a62](https://github.com/electron-userland/electron-builder/commit/e6c2a629839184d4f9d3fa99b580d8c96911ea65))
+* Updater "Error: Could not connect to the server." in macOS ([#6743](https://github.com/electron-userland/electron-builder/issues/6743)) ([27f18aa](https://github.com/electron-userland/electron-builder/commit/27f18aa1d890f3a82e856f4834b8387066fb697f))
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v23.0.2...v) (2022-03-19)
+
+
+### Bug Fixes
+
+* Change DEBUG_LOGGING env var for nsis installers as part of `customNsisBinary` config ([#6729](https://github.com/electron-userland/electron-builder/issues/6729)) ([0a30846](https://github.com/electron-userland/electron-builder/commit/0a308469f269dc5294f29f2c422d9936175c0880)), closes [#6715](https://github.com/electron-userland/electron-builder/issues/6715)
+* **docs:** link to SquirrelWindowsOptions in configuration ([#6724](https://github.com/electron-userland/electron-builder/issues/6724)) ([4eaab19](https://github.com/electron-userland/electron-builder/commit/4eaab1936429ac69dafcc7cfbf53caa85c241a11))
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v23.0.1...v) (2022-03-05)
+
+
+### Bug Fixes
+
+* **app-builder-lib:** export missing TS types ([#6692](https://github.com/electron-userland/electron-builder/issues/6692)) ([93181a7](https://github.com/electron-userland/electron-builder/commit/93181a78f2893ea4929aea8878343336931b3a04))
+* Reactivating bitbucket integration test for nsis updater ([#6680](https://github.com/electron-userland/electron-builder/issues/6680)) ([6fcd477](https://github.com/electron-userland/electron-builder/commit/6fcd47767af8a95ab018fe0d8a07d2c53a72067d))
+* **win:** Include swiftshader in signing directories for windows ([#6682](https://github.com/electron-userland/electron-builder/issues/6682)) ([e6312cb](https://github.com/electron-userland/electron-builder/commit/e6312cb54e5d957289d5c07b506491fcaea9e334))
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v23.0.0...v) (2022-02-25)
+
+
+### Bug Fixes
+
+* **dmg-builder:** the "import" unbound issue for python 2/3 ([#6672](https://github.com/electron-userland/electron-builder/issues/6672)) ([3a4b64a](https://github.com/electron-userland/electron-builder/commit/3a4b64abb58f01e8a80e496b6c4681455b2434ca))
+* signing of user-defined binaries on mac when resolved as relative path ([#6660](https://github.com/electron-userland/electron-builder/issues/6660)) ([4c6d154](https://github.com/electron-userland/electron-builder/commit/4c6d1546d4942aa9d9a93b7309e8ed279f6378d2))
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v23.0.0-alpha.4...v) (2022-02-19)
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v23.0.0-alpha.3...v) (2022-02-17)
+
+
+### Bug Fixes
+
+* **packager:** wait for artifactCreated completion event before starting an upload ([#6625](https://github.com/electron-userland/electron-builder/issues/6625)) ([c561af8](https://github.com/electron-userland/electron-builder/commit/c561af810d5de52bec57709cbaebca2ac92c55fc))
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v23.0.0-alpha.2...v) (2022-02-06)
+
+
+### Bug Fixes
+
+* **dmg-builder:** Support python 3 since python 2 was removed from MacOS 12.3 ([#6617](https://github.com/electron-userland/electron-builder/issues/6617)) ([2def112](https://github.com/electron-userland/electron-builder/commit/2def112bc1ac42046b921206825871b82ebf0955)), closes [#6606](https://github.com/electron-userland/electron-builder/issues/6606)
+* **docs:** Fixing formatting of code groups and previews ([#6601](https://github.com/electron-userland/electron-builder/issues/6601)) ([b01d522](https://github.com/electron-userland/electron-builder/commit/b01d5225631115f6f301cb113b044fd10ebb5256)), closes [#6597](https://github.com/electron-userland/electron-builder/issues/6597) [#6574](https://github.com/electron-userland/electron-builder/issues/6574)
+* fixes for server auth for MacUpdater ([#6587](https://github.com/electron-userland/electron-builder/issues/6587)) ([8746f91](https://github.com/electron-userland/electron-builder/commit/8746f910d136fb9b531e688d0a646eeb9528adc6))
+* **updater:** Remove checks for app-update.yml when auto-updates are not supported ([#6616](https://github.com/electron-userland/electron-builder/issues/6616)) ([86e6d15](https://github.com/electron-userland/electron-builder/commit/86e6d1509f9b9c76c559e9c3a12b7a1595fe3ac4)), closes [#6322](https://github.com/electron-userland/electron-builder/issues/6322)
+* **updater:** Support Electron 11 and below (Node < 14) ([#6594](https://github.com/electron-userland/electron-builder/issues/6594)) ([edc4b03](https://github.com/electron-userland/electron-builder/commit/edc4b030703ee3929b31608a496798635169f5b1)), closes [#6000](https://github.com/electron-userland/electron-builder/issues/6000)
+* **win/mac:** Small security fixes for electron-updater ([#6589](https://github.com/electron-userland/electron-builder/issues/6589)) ([633ee5d](https://github.com/electron-userland/electron-builder/commit/633ee5dc292174ed1486c53af93320f20cf02169))
+
+
+### Features
+
+* **updater:** Add Channel Support for Github with PreRelease ([#6505](https://github.com/electron-userland/electron-builder/issues/6505)) ([#1722](https://github.com/electron-userland/electron-builder/issues/1722)) ([#4988](https://github.com/electron-userland/electron-builder/issues/4988)) ([1de0adb](https://github.com/electron-userland/electron-builder/commit/1de0adbd615b3b3d26faeb6a449f522355b36041))
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v23.0.0-alpha.2...v) (2022-01-31)
+
+
+### Bug Fixes
+
+* fixes for server auth for MacUpdater ([#6587](https://github.com/electron-userland/electron-builder/issues/6587)) ([8746f91](https://github.com/electron-userland/electron-builder/commit/8746f910d136fb9b531e688d0a646eeb9528adc6))
+* **updater:** Support Electron 11 and below (Node < 14) ([#6594](https://github.com/electron-userland/electron-builder/issues/6594)) ([edc4b03](https://github.com/electron-userland/electron-builder/commit/edc4b030703ee3929b31608a496798635169f5b1)), closes [#6000](https://github.com/electron-userland/electron-builder/issues/6000)
+* **win/mac:** Small security fixes for electron-updater ([#6589](https://github.com/electron-userland/electron-builder/issues/6589)) ([633ee5d](https://github.com/electron-userland/electron-builder/commit/633ee5dc292174ed1486c53af93320f20cf02169))
+
+
+### Features
+
+* **updater:** Add Channel Support for Github with PreRelease ([#6505](https://github.com/electron-userland/electron-builder/issues/6505)) ([#1722](https://github.com/electron-userland/electron-builder/issues/1722)) ([#4988](https://github.com/electron-userland/electron-builder/issues/4988)) ([1de0adb](https://github.com/electron-userland/electron-builder/commit/1de0adbd615b3b3d26faeb6a449f522355b36041))
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v22.14.12...v) (2022-01-28)
+
+
+### Bug Fixes
+
+* Allow disabling of webinstaller files to avoid confusion with actual installers ([#6575](https://github.com/electron-userland/electron-builder/issues/6575)) ([5e381c5](https://github.com/electron-userland/electron-builder/commit/5e381c556d12ce185bb7ea720380509c1ddc5cf7))
+* **docs:** Update link for "Desktop File" ([#6532](https://github.com/electron-userland/electron-builder/issues/6532)) ([cd79c53](https://github.com/electron-userland/electron-builder/commit/cd79c53828759cf19cd361a48ef6fd57fff0e2f1))
+* **electron-publish:** socket hang up error 422 issues in github publish ([#6563](https://github.com/electron-userland/electron-builder/issues/6563)) ([39da9ed](https://github.com/electron-userland/electron-builder/commit/39da9edd2df5c147ef2d868f022484a8b2e0466a))
+* fixes for server auth for MacUpdater ([#6587](https://github.com/electron-userland/electron-builder/issues/6587)) ([8746f91](https://github.com/electron-userland/electron-builder/commit/8746f910d136fb9b531e688d0a646eeb9528adc6))
+* **NSIS:** prevent partial overwrites during `Nsis7z::Extract` ([#6547](https://github.com/electron-userland/electron-builder/issues/6547)) ([bea51d6](https://github.com/electron-userland/electron-builder/commit/bea51d6a8bb828d9b34734908f13b667aa55b0e9))
+* **nsis:** use revertible+atomic rmdir on update and add user-confirmed retry loop ([#6551](https://github.com/electron-userland/electron-builder/issues/6551)) ([7b2a5e1](https://github.com/electron-userland/electron-builder/commit/7b2a5e1f19921e9da4aaaea8c01c78740f29f9dd))
+* skip unstable installer tests to unblock master CI pipeline ([#6544](https://github.com/electron-userland/electron-builder/issues/6544)) ([5648e05](https://github.com/electron-userland/electron-builder/commit/5648e05a9efa61f81e788ecf538a617df9f65fe1))
+* Stub CircleCI config since we can't disable it from dashboard ([#6543](https://github.com/electron-userland/electron-builder/issues/6543)) ([22fb8c6](https://github.com/electron-userland/electron-builder/commit/22fb8c63ac196c61c6b449e6e5e95d91117f8894))
+* Update certificate validation on Windows to check full DN ([#6576](https://github.com/electron-userland/electron-builder/issues/6576)) ([53467c7](https://github.com/electron-userland/electron-builder/commit/53467c724dacc11fc270cebaba22f8cf84dff24f))
+* use junction in windows to solve Error: EPERM: operation not per… ([#6529](https://github.com/electron-userland/electron-builder/issues/6529)) ([f7b3869](https://github.com/electron-userland/electron-builder/commit/f7b386986ec30f7e4cd3e3f68e078a773940a51c))
+
+
+### chore
+
+* v23.0.0 alpha ([#6556](https://github.com/electron-userland/electron-builder/issues/6556)) ([a138a86](https://github.com/electron-userland/electron-builder/commit/a138a86fb7b59098f5dac0c0a6b59c034eb9b222)), closes [#4898](https://github.com/electron-userland/electron-builder/issues/4898) [#6232](https://github.com/electron-userland/electron-builder/issues/6232) [#6259](https://github.com/electron-userland/electron-builder/issues/6259) [#6511](https://github.com/electron-userland/electron-builder/issues/6511) [#6506](https://github.com/electron-userland/electron-builder/issues/6506) [#6507](https://github.com/electron-userland/electron-builder/issues/6507) [#6514](https://github.com/electron-userland/electron-builder/issues/6514) [#6508](https://github.com/electron-userland/electron-builder/issues/6508) [#6508](https://github.com/electron-userland/electron-builder/issues/6508) [#3683](https://github.com/electron-userland/electron-builder/issues/3683) [#6201](https://github.com/electron-userland/electron-builder/issues/6201) [#6530](https://github.com/electron-userland/electron-builder/issues/6530) [#6550](https://github.com/electron-userland/electron-builder/issues/6550)
+
+
+### Features
+
+* **updater:** Add Channel Support for Github with PreRelease ([#6505](https://github.com/electron-userland/electron-builder/issues/6505)) ([#1722](https://github.com/electron-userland/electron-builder/issues/1722)) ([#4988](https://github.com/electron-userland/electron-builder/issues/4988)) ([1de0adb](https://github.com/electron-userland/electron-builder/commit/1de0adbd615b3b3d26faeb6a449f522355b36041))
+* use `mergeASARs` API by @electron/universal ([#6578](https://github.com/electron-userland/electron-builder/issues/6578)) ([81132a8](https://github.com/electron-userland/electron-builder/commit/81132a857b24bfdb01fc44eba75fc89fa2885545))
+
+
+### BREAKING CHANGES
+
+* Removing Bintray support since it was sunset. Ref: https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+
+* fix: force strip path separators for backslashes on Windows
+
+* fix: Force authentication for local Mac Squirrel update server
+* Fail-fast for signature verification failures. Adding `-LiteralPath` to update file for injected wildcards
+
+* Adding changeset and eslint
+
+* Fix error: `-OUTPUTCHARSET is disabled for non Win32 platforms.`
+* Admins using advertisement must apply an MST to re-enable it. See #6508.
+* remove MSI option `iconId`
+
+* fix: stabilizing tests by moving updater tests to its own node to explicitly segment env.___TOKEN integration tests from other standard unit tests
+
+* chore: synchronizing docs and schema plus prettier
+
+* Adding changset to set as alpha
+
+* Updating changeset documentation
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v22.14.12...v) (2022-01-26)
+
+
+### Bug Fixes
+
+* Allow disabling of webinstaller files to avoid confusion with actual installers ([#6575](https://github.com/electron-userland/electron-builder/issues/6575)) ([5e381c5](https://github.com/electron-userland/electron-builder/commit/5e381c556d12ce185bb7ea720380509c1ddc5cf7))
+* **docs:** Update link for "Desktop File" ([#6532](https://github.com/electron-userland/electron-builder/issues/6532)) ([cd79c53](https://github.com/electron-userland/electron-builder/commit/cd79c53828759cf19cd361a48ef6fd57fff0e2f1))
+* **electron-publish:** socket hang up error 422 issues in github publish ([#6563](https://github.com/electron-userland/electron-builder/issues/6563)) ([39da9ed](https://github.com/electron-userland/electron-builder/commit/39da9edd2df5c147ef2d868f022484a8b2e0466a))
+* **NSIS:** prevent partial overwrites during `Nsis7z::Extract` ([#6547](https://github.com/electron-userland/electron-builder/issues/6547)) ([bea51d6](https://github.com/electron-userland/electron-builder/commit/bea51d6a8bb828d9b34734908f13b667aa55b0e9))
+* **nsis:** use revertible+atomic rmdir on update and add user-confirmed retry loop ([#6551](https://github.com/electron-userland/electron-builder/issues/6551)) ([7b2a5e1](https://github.com/electron-userland/electron-builder/commit/7b2a5e1f19921e9da4aaaea8c01c78740f29f9dd))
+* skip unstable installer tests to unblock master CI pipeline ([#6544](https://github.com/electron-userland/electron-builder/issues/6544)) ([5648e05](https://github.com/electron-userland/electron-builder/commit/5648e05a9efa61f81e788ecf538a617df9f65fe1))
+* Stub CircleCI config since we can't disable it from dashboard ([#6543](https://github.com/electron-userland/electron-builder/issues/6543)) ([22fb8c6](https://github.com/electron-userland/electron-builder/commit/22fb8c63ac196c61c6b449e6e5e95d91117f8894))
+* Update certificate validation on Windows to check full DN ([#6576](https://github.com/electron-userland/electron-builder/issues/6576)) ([53467c7](https://github.com/electron-userland/electron-builder/commit/53467c724dacc11fc270cebaba22f8cf84dff24f))
+* use junction in windows to solve Error: EPERM: operation not per… ([#6529](https://github.com/electron-userland/electron-builder/issues/6529)) ([f7b3869](https://github.com/electron-userland/electron-builder/commit/f7b386986ec30f7e4cd3e3f68e078a773940a51c))
+
+
+### chore
+
+* v23.0.0 alpha ([#6556](https://github.com/electron-userland/electron-builder/issues/6556)) ([a138a86](https://github.com/electron-userland/electron-builder/commit/a138a86fb7b59098f5dac0c0a6b59c034eb9b222)), closes [#4898](https://github.com/electron-userland/electron-builder/issues/4898) [#6232](https://github.com/electron-userland/electron-builder/issues/6232) [#6259](https://github.com/electron-userland/electron-builder/issues/6259) [#6511](https://github.com/electron-userland/electron-builder/issues/6511) [#6506](https://github.com/electron-userland/electron-builder/issues/6506) [#6507](https://github.com/electron-userland/electron-builder/issues/6507) [#6514](https://github.com/electron-userland/electron-builder/issues/6514) [#6508](https://github.com/electron-userland/electron-builder/issues/6508) [#6508](https://github.com/electron-userland/electron-builder/issues/6508) [#3683](https://github.com/electron-userland/electron-builder/issues/3683) [#6201](https://github.com/electron-userland/electron-builder/issues/6201) [#6530](https://github.com/electron-userland/electron-builder/issues/6530) [#6550](https://github.com/electron-userland/electron-builder/issues/6550)
+
+
+### Features
+
+* use `mergeASARs` API by @electron/universal ([#6578](https://github.com/electron-userland/electron-builder/issues/6578)) ([81132a8](https://github.com/electron-userland/electron-builder/commit/81132a857b24bfdb01fc44eba75fc89fa2885545))
+
+
+### BREAKING CHANGES
+
+* Removing Bintray support since it was sunset. Ref: https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+
+* fix: force strip path separators for backslashes on Windows
+
+* fix: Force authentication for local Mac Squirrel update server
+* Fail-fast for signature verification failures. Adding `-LiteralPath` to update file for injected wildcards
+
+* Adding changeset and eslint
+
+* Fix error: `-OUTPUTCHARSET is disabled for non Win32 platforms.`
+* Admins using advertisement must apply an MST to re-enable it. See #6508.
+* remove MSI option `iconId`
+
+* fix: stabilizing tests by moving updater tests to its own node to explicitly segment env.___TOKEN integration tests from other standard unit tests
+
+* chore: synchronizing docs and schema plus prettier
+
+* Adding changset to set as alpha
+
+* Updating changeset documentation
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v22.14.12...v) (2022-01-19)
+
+
+### Bug Fixes
+
+* **docs:** Update link for "Desktop File" ([#6532](https://github.com/electron-userland/electron-builder/issues/6532)) ([cd79c53](https://github.com/electron-userland/electron-builder/commit/cd79c53828759cf19cd361a48ef6fd57fff0e2f1))
+* **electron-publish:** socket hang up error 422 issues in github publish ([#6563](https://github.com/electron-userland/electron-builder/issues/6563)) ([39da9ed](https://github.com/electron-userland/electron-builder/commit/39da9edd2df5c147ef2d868f022484a8b2e0466a))
+* **NSIS:** prevent partial overwrites during `Nsis7z::Extract` ([#6547](https://github.com/electron-userland/electron-builder/issues/6547)) ([bea51d6](https://github.com/electron-userland/electron-builder/commit/bea51d6a8bb828d9b34734908f13b667aa55b0e9))
+* **nsis:** use revertible+atomic rmdir on update and add user-confirmed retry loop ([#6551](https://github.com/electron-userland/electron-builder/issues/6551)) ([7b2a5e1](https://github.com/electron-userland/electron-builder/commit/7b2a5e1f19921e9da4aaaea8c01c78740f29f9dd))
+* skip unstable installer tests to unblock master CI pipeline ([#6544](https://github.com/electron-userland/electron-builder/issues/6544)) ([5648e05](https://github.com/electron-userland/electron-builder/commit/5648e05a9efa61f81e788ecf538a617df9f65fe1))
+* Stub CircleCI config since we can't disable it from dashboard ([#6543](https://github.com/electron-userland/electron-builder/issues/6543)) ([22fb8c6](https://github.com/electron-userland/electron-builder/commit/22fb8c63ac196c61c6b449e6e5e95d91117f8894))
+* use junction in windows to solve Error: EPERM: operation not per… ([#6529](https://github.com/electron-userland/electron-builder/issues/6529)) ([f7b3869](https://github.com/electron-userland/electron-builder/commit/f7b386986ec30f7e4cd3e3f68e078a773940a51c))
+
+
+### chore
+
+* v23.0.0 alpha ([#6556](https://github.com/electron-userland/electron-builder/issues/6556)) ([a138a86](https://github.com/electron-userland/electron-builder/commit/a138a86fb7b59098f5dac0c0a6b59c034eb9b222)), closes [#4898](https://github.com/electron-userland/electron-builder/issues/4898) [#6232](https://github.com/electron-userland/electron-builder/issues/6232) [#6259](https://github.com/electron-userland/electron-builder/issues/6259) [#6511](https://github.com/electron-userland/electron-builder/issues/6511) [#6506](https://github.com/electron-userland/electron-builder/issues/6506) [#6507](https://github.com/electron-userland/electron-builder/issues/6507) [#6514](https://github.com/electron-userland/electron-builder/issues/6514) [#6508](https://github.com/electron-userland/electron-builder/issues/6508) [#6508](https://github.com/electron-userland/electron-builder/issues/6508) [#3683](https://github.com/electron-userland/electron-builder/issues/3683) [#6201](https://github.com/electron-userland/electron-builder/issues/6201) [#6530](https://github.com/electron-userland/electron-builder/issues/6530) [#6550](https://github.com/electron-userland/electron-builder/issues/6550)
+
+
+### BREAKING CHANGES
+
+* Removing Bintray support since it was sunset. Ref: https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+
+* fix: force strip path separators for backslashes on Windows
+
+* fix: Force authentication for local Mac Squirrel update server
+* Fail-fast for signature verification failures. Adding `-LiteralPath` to update file for injected wildcards
+
+* Adding changeset and eslint
+
+* Fix error: `-OUTPUTCHARSET is disabled for non Win32 platforms.`
+* Admins using advertisement must apply an MST to re-enable it. See #6508.
+* remove MSI option `iconId`
+
+* fix: stabilizing tests by moving updater tests to its own node to explicitly segment env.___TOKEN integration tests from other standard unit tests
+
+* chore: synchronizing docs and schema plus prettier
+
+* Adding changset to set as alpha
+
+* Updating changeset documentation
+
+
+
+# [](https://github.com/electron-userland/electron-builder/compare/v22.14.12...v) (2022-01-17)
+
+
+### Bug Fixes
+
+* **docs:** Update link for "Desktop File" ([#6532](https://github.com/electron-userland/electron-builder/issues/6532)) ([cd79c53](https://github.com/electron-userland/electron-builder/commit/cd79c53828759cf19cd361a48ef6fd57fff0e2f1))
+* **NSIS:** prevent partial overwrites during `Nsis7z::Extract` ([#6547](https://github.com/electron-userland/electron-builder/issues/6547)) ([bea51d6](https://github.com/electron-userland/electron-builder/commit/bea51d6a8bb828d9b34734908f13b667aa55b0e9))
+* **nsis:** use revertible+atomic rmdir on update and add user-confirmed retry loop ([#6551](https://github.com/electron-userland/electron-builder/issues/6551)) ([7b2a5e1](https://github.com/electron-userland/electron-builder/commit/7b2a5e1f19921e9da4aaaea8c01c78740f29f9dd))
+* skip unstable installer tests to unblock master CI pipeline ([#6544](https://github.com/electron-userland/electron-builder/issues/6544)) ([5648e05](https://github.com/electron-userland/electron-builder/commit/5648e05a9efa61f81e788ecf538a617df9f65fe1))
+* Stub CircleCI config since we can't disable it from dashboard ([#6543](https://github.com/electron-userland/electron-builder/issues/6543)) ([22fb8c6](https://github.com/electron-userland/electron-builder/commit/22fb8c63ac196c61c6b449e6e5e95d91117f8894))
+* use junction in windows to solve Error: EPERM: operation not per… ([#6529](https://github.com/electron-userland/electron-builder/issues/6529)) ([f7b3869](https://github.com/electron-userland/electron-builder/commit/f7b386986ec30f7e4cd3e3f68e078a773940a51c))
+
+
+### chore
+
+* v23.0.0 alpha ([#6556](https://github.com/electron-userland/electron-builder/issues/6556)) ([a138a86](https://github.com/electron-userland/electron-builder/commit/a138a86fb7b59098f5dac0c0a6b59c034eb9b222)), closes [#4898](https://github.com/electron-userland/electron-builder/issues/4898) [#6232](https://github.com/electron-userland/electron-builder/issues/6232) [#6259](https://github.com/electron-userland/electron-builder/issues/6259) [#6511](https://github.com/electron-userland/electron-builder/issues/6511) [#6506](https://github.com/electron-userland/electron-builder/issues/6506) [#6507](https://github.com/electron-userland/electron-builder/issues/6507) [#6514](https://github.com/electron-userland/electron-builder/issues/6514) [#6508](https://github.com/electron-userland/electron-builder/issues/6508) [#6508](https://github.com/electron-userland/electron-builder/issues/6508) [#3683](https://github.com/electron-userland/electron-builder/issues/3683) [#6201](https://github.com/electron-userland/electron-builder/issues/6201) [#6530](https://github.com/electron-userland/electron-builder/issues/6530) [#6550](https://github.com/electron-userland/electron-builder/issues/6550)
+
+
+### BREAKING CHANGES
+
+* Removing Bintray support since it was sunset. Ref: https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+
+* fix: force strip path separators for backslashes on Windows
+
+* fix: Force authentication for local Mac Squirrel update server
+* Fail-fast for signature verification failures. Adding `-LiteralPath` to update file for injected wildcards
+
+* Adding changeset and eslint
+
+* Fix error: `-OUTPUTCHARSET is disabled for non Win32 platforms.`
+* Admins using advertisement must apply an MST to re-enable it. See #6508.
+* remove MSI option `iconId`
+
+* fix: stabilizing tests by moving updater tests to its own node to explicitly segment env.___TOKEN integration tests from other standard unit tests
+
+* chore: synchronizing docs and schema plus prettier
+
+* Adding changset to set as alpha
+
+* Updating changeset documentation
+
+
+
 # [](https://github.com/electron-userland/electron-builder/compare/v22.14.12...v) (2022-01-11)
 
 

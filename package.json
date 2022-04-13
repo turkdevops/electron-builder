@@ -9,6 +9,7 @@
     "docs/**/*": "pnpm generate-docs"
   },
   "scripts": {
+    "postinstall": "patch-package",
     "//": "do not wrap into single quotes - windows doesn't unwrap arg in this case",
     "compile": "tsc --build",
     "lint": "eslint packages --ext .ts",
@@ -27,7 +28,7 @@
     "generate-changeset": "pnpm changeset",
     "generate-docs": "pnpm compile && pnpm jsdoc && pnpm jsdoc2md2html",
     "ci:test": "node ./test/out/helpers/runTests.js",
-    "ci:version": "pnpm changelog && changeset version && node scripts/update-package-version-export.js && pnpm run generate-docs && git add .",
+    "ci:version": "pnpm changelog && changeset version && node scripts/update-package-version-export.js && pnpm run schema && pnpm run generate-docs && pnpm run prettier && git add .",
     "ci:publish": "pnpm compile && pnpm publish -r && changeset tag",
     "schema": "typescript-json-schema packages/app-builder-lib/tsconfig-scheme.json Configuration --out packages/app-builder-lib/scheme.json --noExtraProps --useTypeOfKeyword --strictNullChecks --required && node ./scripts/fix-schema.js",
     "jsdoc": "ts2jsdoc packages/builder-util-runtime packages/builder-util packages/app-builder-lib packages/electron-builder packages/electron-publish packages/electron-updater packages/dmg-builder",
@@ -46,9 +47,10 @@
     "@babel/plugin-transform-modules-commonjs": "7.15.4",
     "@changesets/changelog-github": "0.4.2",
     "@changesets/cli": "2.19.0",
+    "@milahu/patch-package-with-pnpm-support": "github:milahu/patch-package#pnpm-support-2",
     "@types/node": "16.7.10",
-    "@typescript-eslint/eslint-plugin": "4.31.2",
-    "@typescript-eslint/parser": "4.31.2",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
     "catharsis": "0.9.0",
     "conventional-changelog-cli": "2.1.1",
     "dmd": "6.0.0",
@@ -72,7 +74,7 @@
     "v8-compile-cache": "2.3.0"
   },
   "engines": {
-    "node": ">=14",
+    "node": ">=14.14",
     "pnpm": ">=6"
   }
 }

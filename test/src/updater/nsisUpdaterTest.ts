@@ -34,9 +34,9 @@ test("downgrade (disallowed, beta)", async () => {
   }
 
   const updateCheckResult = await updater.checkForUpdates()
-  expect(removeUnstableProperties(updateCheckResult.updateInfo)).toMatchSnapshot()
+  expect(removeUnstableProperties(updateCheckResult?.updateInfo)).toMatchSnapshot()
   // noinspection JSIgnoredPromiseFromCall
-  expect(updateCheckResult.downloadPromise).toBeUndefined()
+  expect(updateCheckResult?.downloadPromise).toBeUndefined()
 
   expect(actualEvents).toEqual(expectedEvents)
 })
@@ -95,8 +95,8 @@ test.skip.ifNotCiWin("sha512 mismatch error event", async () => {
   const actualEvents = trackEvents(updater)
 
   const updateCheckResult = await updater.checkForUpdates()
-  expect(removeUnstableProperties(updateCheckResult.updateInfo)).toMatchSnapshot()
-  await assertThat(updateCheckResult.downloadPromise).throws()
+  expect(removeUnstableProperties(updateCheckResult?.updateInfo)).toMatchSnapshot()
+  await assertThat(updateCheckResult?.downloadPromise).throws()
 
   expect(actualEvents).toMatchSnapshot()
 })
@@ -112,9 +112,9 @@ test("file url generic - manual download", async () => {
   const actualEvents = trackEvents(updater)
 
   const updateCheckResult = await updater.checkForUpdates()
-  expect(removeUnstableProperties(updateCheckResult.updateInfo)).toMatchSnapshot()
+  expect(removeUnstableProperties(updateCheckResult?.updateInfo)).toMatchSnapshot()
   // noinspection JSIgnoredPromiseFromCall
-  expect(updateCheckResult.downloadPromise).toBeNull()
+  expect(updateCheckResult?.downloadPromise).toBeNull()
   expect(actualEvents).toMatchSnapshot()
 
   await assertThat(path.join((await updater.downloadUpdate())[0])).isFile()
@@ -132,12 +132,12 @@ test("checkForUpdates several times", async () => {
 
   for (let i = 0; i < 10; i++) {
     //noinspection JSIgnoredPromiseFromCall
-    updater.checkForUpdates()
+    void updater.checkForUpdates()
   }
 
   async function checkForUpdates() {
     const updateCheckResult = await updater.checkForUpdates()
-    expect(removeUnstableProperties(updateCheckResult.updateInfo)).toMatchSnapshot()
+    expect(removeUnstableProperties(updateCheckResult?.updateInfo)).toMatchSnapshot()
     await checkDownloadPromise(updateCheckResult)
   }
 
@@ -148,8 +148,8 @@ test("checkForUpdates several times", async () => {
   expect(actualEvents).toMatchSnapshot()
 })
 
-async function checkDownloadPromise(updateCheckResult: UpdateCheckResult) {
-  return await assertThat(path.join((await updateCheckResult.downloadPromise)!![0])).isFile()
+async function checkDownloadPromise(updateCheckResult: UpdateCheckResult | null) {
+  return await assertThat(path.join((await updateCheckResult?.downloadPromise)![0])).isFile()
 }
 
 test("file url github", async () => {
@@ -183,10 +183,10 @@ test("file url github pre-release and fullChangelog", async () => {
     expect(info).toMatchSnapshot()
   })
   const updateCheckResult = await validateDownload(updater)
-  expect(updateCheckResult.updateInfo).toMatchSnapshot()
+  expect(updateCheckResult?.updateInfo).toMatchSnapshot()
 })
 
-test.skip("file url github private", async () => {
+test.ifEnv(process.env.GH_TOKEN || process.env.GITHUB_TOKEN)("file url github private", async () => {
   const updater = await createNsisUpdater("0.0.1")
   updater.updateConfigPath = await writeUpdateConfig<GithubOptions>({
     provider: "github",
@@ -229,7 +229,7 @@ test.skip("test download progress", async () => {
   expect(lastEvent.transferred).toBe(lastEvent.total)
 })
 
-test.ifAll.ifWindows("valid signature", async () => {
+test.ifAll("valid signature", async () => {
   const updater = await createNsisUpdater("0.0.1")
   updater.updateConfigPath = await writeUpdateConfig({
     provider: "github",
@@ -240,7 +240,29 @@ test.ifAll.ifWindows("valid signature", async () => {
   await validateDownload(updater)
 })
 
-test.ifAll.ifWindows("invalid signature", async () => {
+test.ifAll("valid signature - multiple publisher DNs", async () => {
+  const updater = await createNsisUpdater("0.0.1")
+  updater.updateConfigPath = await writeUpdateConfig({
+    provider: "github",
+    owner: "develar",
+    repo: "__test_nsis_release",
+    publisherName: ["Foo Bar", "CN=Vladimir Krivosheev, O=Vladimir Krivosheev, L=Grunwald, S=Bayern, C=DE", "Bar Foo"],
+  })
+  await validateDownload(updater)
+})
+
+test.ifAll("valid signature using DN", async () => {
+  const updater = await createNsisUpdater("0.0.1")
+  updater.updateConfigPath = await writeUpdateConfig({
+    provider: "github",
+    owner: "develar",
+    repo: "__test_nsis_release",
+    publisherName: ["CN=Vladimir Krivosheev, O=Vladimir Krivosheev, L=Grunwald, S=Bayern, C=DE"],
+  })
+  await validateDownload(updater)
+})
+
+test.skip.ifAll("invalid signature", async () => {
   const updater = await createNsisUpdater("0.0.1")
   updater.updateConfigPath = await writeUpdateConfig({
     provider: "github",
@@ -249,12 +271,12 @@ test.ifAll.ifWindows("invalid signature", async () => {
     publisherName: ["Foo Bar"],
   })
   const actualEvents = trackEvents(updater)
-  await assertThat(updater.checkForUpdates().then((it): any => it.downloadPromise)).throws()
+  await assertThat(updater.checkForUpdates().then((it): any => it?.downloadPromise)).throws()
   expect(actualEvents).toMatchSnapshot()
 })
 
 // disable for now
-test.skip("90 staging percentage", async () => {
+test("90 staging percentage", async () => {
   const userIdFile = path.join(tmpdir(), "electron-updater-test", "userData", ".updaterId")
   await outputFile(userIdFile, "1wa70172-80f8-5cc4-8131-28f5e0edd2a1")
 
@@ -282,7 +304,7 @@ test("1 staging percentage", async () => {
   await validateDownload(updater, false)
 })
 
-test.skip("cancel download with progress", async () => {
+test("cancel download with progress", async () => {
   const updater = await createNsisUpdater()
   updater.updateConfigPath = await writeUpdateConfig({
     provider: "generic",
@@ -296,7 +318,7 @@ test.skip("cancel download with progress", async () => {
   updater.signals.updateCancelled(() => (cancelled = true))
 
   const checkResult = await updater.checkForUpdates()
-  checkResult.cancellationToken!!.cancel()
+  checkResult?.cancellationToken!.cancel()
 
   if (progressEvents.length > 0) {
     const lastEvent = progressEvents[progressEvents.length - 1]
@@ -305,7 +327,7 @@ test.skip("cancel download with progress", async () => {
     expect(lastEvent.transferred).not.toBe(lastEvent.total)
   }
 
-  const downloadPromise = checkResult.downloadPromise!!
+  const downloadPromise = checkResult?.downloadPromise
   await assertThat(downloadPromise).throws()
   expect(cancelled).toBe(true)
 })
